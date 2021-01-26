@@ -14,5 +14,6 @@
 Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index');
 // route untuk form dan register
-Route::get('/register', 'AuthController@register');
-Route::get('/welcome', function () {return view('welcome');});
+Route::get('/register', 'AuthController@form');
+Route::post('/register', 'AuthController@register');
+// Route::get('welcome', function () {return view('welcome');});

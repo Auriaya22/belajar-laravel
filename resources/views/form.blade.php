@@ -8,7 +8,8 @@
     <h1>Buat account Baru!</h1>
 
     <h3>Sign Up form</h3>
-    <form action="welcome.html" method="post">
+    <form action="/register" method="post">
+      @csrf
       <!-- input first name  -->
       <label>First Name :</label><br>
       <input type="text" name="fname">
