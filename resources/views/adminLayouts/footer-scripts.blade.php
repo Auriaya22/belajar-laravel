@@ -1,60 +1,34 @@
-<script src=" {!! asset('blog-asset/assets/web/assets/jquery/jquery.min.js') !!}"></script>
-<script src=" {!! asset('blog-asset/assets/bootstrap/js/bootstrap.min.js') !!}"></script>
-<script src=" {!! asset('blog-asset/assets/popper/popper.min.js') !!}"></script>
-<script src=" {!! asset('blog-asset/assets/smoothscroll/smooth-scroll.js') !!}"></script>
-<script src=" {!! asset('blog-asset/assets/dropdown/js/nav-dropdown.js') !!}"></script>
-<script src=" {!! asset('blog-asset/assets/dropdown/js/navbar-dropdown.js') !!}"></script>
-<script src=" {!! asset('blog-asset/assets/touchswipe/jquery.touch-swipe.min.js') !!}"></script>
-<script src=" {!! asset('blog-asset/assets/ytplayer/jquery.mb.ytplayer.min.js') !!}"></script>
-<script src=" {!! asset('blog-asset/assets/tether/tether.min.js') !!}"></script>
-<script src=" {!! asset('blog-asset/assets/masonry/masonry.pkgd.min.js') !!}"></script>
-<script src=" {!! asset('blog-asset/assets/imagesloaded/imagesloaded.pkgd.min.js') !!}"></script>
-<script src=" {!! asset('blog-asset/assets/bootstrapcarouselswipe/bootstrap-carousel-swipe.js') !!}"></script>
-<script src=" {!! asset('blog-asset/assets/viewportchecker/jquery.viewportchecker.js') !!}"></script>
-<script src=" {!! asset('blog-asset/assets/parallax/jarallax.min.js') !!}"></script>
-<script src=" {!! asset('blog-asset/assets/vimeoplayer/jquery.mb.vimeo_player.js') !!}"></script>
-<script src=" {!! asset('blog-asset/assets/theme/js/script.js') !!}"></script>
-<script src=" {!! asset('blog-asset/assets/slidervideo/script.js') !!}"></script>
-<script src=" {!! asset('blog-asset/assets/gallery/player.min.js') !!}"></script>
-<script src=" {!! asset('blog-asset/assets/gallery/script.js') !!}"></script>
-<script src=" {!! asset('blog-asset/js/canvasjs.min.js') !!}"></script>
-<script src=" {!! asset('blog-asset/js/mousescroll.js') !!}"></script>
-<script src=" {!! asset('blog-asset/js/smoothscroll.js') !!}"></script>
-
+<!-- jQuery -->
+<script src=" {!! asset('assets/plugins/jquery/jquery.min.js') !!}"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src=" {!! asset('assets/plugins/jquery-ui/jquery-ui.min.js') !!}"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
-$("#tutupqr").click(function(){
-  $("#qrinfaq").hide();
-});
-window.onload = function () {
-  var chart = new CanvasJS.Chart("chartContainer", {
-    animationEnabled: true,
-    theme: "light2", // "light1", "light2", "dark1", "dark2"
-    title: {
-      text: "Data kelulusan PTN SMA Alfa Centauri"
-    },
-    axisY: {
-      title: "Jumlah",
-      includeZero: false
-    },
-    axisX: {
-      title: "Tahun"
-    },
-    data: [{
-      type: "column",
-      yValueFormatString: "#,##0.0#\"\"",
-      dataPoints: [
-        { label: "2012", y: 108 },
-        { label: "2013", y: 83 },
-        { label: "2014", y: 145 },
-        { label: "2015", y: 145 },
-        { label: "2016", y: 128 },
-        { label: "2017", y: 140 },
-        { label: "2018", y: 192 },
-        { label: "2019", y: 157 }
-
-      ]
-    }]
-  });
-  chart.render();
-}
+  $.widget.bridge('uibutton', $.ui.button)
 </script>
+<!-- Bootstrap 4 -->
+<script src=" {!! asset('assets/plugins/bootstrap/js/bootstrap.bundle.min.js') !!}"></script>
+<!-- ChartJS -->
+<!-- <script src=" {!! asset('assets/plugins/chart.js/Chart.min.js') !!}"></script> -->
+<!-- Sparkline -->
+<!-- <script src=" {!! asset('assets/plugins/sparklines/sparkline.js') !!}"></script> -->
+<!-- JQVMap -->
+<!-- <script src=" {!! asset('assets/plugins/jqvmap/jquery.vmap.min.js') !!}"></script>
+<script src=" {!! asset('assets/plugins/jqvmap/maps/jquery.vmap.usa.js') !!}"></script> -->
+<!-- jQuery Knob Chart -->
+<script src=" {!! asset('assets/plugins/jquery-knob/jquery.knob.min.js') !!}"></script>
+<!-- daterangepicker -->
+<script src=" {!! asset('assets/plugins/moment/moment.min.js') !!}"></script>
+<script src=" {!! asset('assets/plugins/daterangepicker/daterangepicker.js') !!}"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src=" {!! asset('assets/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') !!}"></script>
+<!-- Summernote -->
+<script src=" {!! asset('assets/plugins/summernote/summernote-bs4.min.js') !!}"></script>
+<!-- overlayScrollbars -->
+<script src=" {!! asset('assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') !!}"></script>
+<!-- AdminLTE App -->
+<script src=" {!! asset('assets/js/adminlte.js') !!}"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<!-- <script src=" {!! asset('assets/js/pages/dashboard.js') !!}"></script> -->
+<!-- AdminLTE for demo purposes -->
+<!-- <script src=" {!! asset('assets/js/demo.js') !!}"></script> -->

@@ -11,9 +11,10 @@
 |
 */
 // route ke index
-Route::get('/', 'HomeController@index');
-Route::get('/home', 'HomeController@index');
+Route::get('/', function () {return view('index');});
+Route::get('/data-tables', function () {return view('data');});
+// Route::get('/home', 'HomeController@index');
 // route untuk form dan register
-Route::get('/register', 'AuthController@form');
-Route::post('/register', 'AuthController@register');
+// Route::get('/register', 'AuthController@form');
+// Route::post('/register', 'AuthController@register');
 // Route::get('welcome', function () {return view('welcome');});

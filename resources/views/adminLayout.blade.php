@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  @include('adminLayouts.bloglayout.head')
+  @include('adminLayouts.head')
 </head>
 <body>
-  @include('adminLayouts.bloglayout.nav')
-  @yield('content')
-  @include('adminLayouts.bloglayout.footer-scripts')
+  <div class="wrapper">
+    @include('adminLayouts.nav')
+    @include('adminLayouts.sidebar')
+    @yield('content')
+    @include('adminLayouts.footer')
+  </div>
+  @include('adminLayouts.footer-scripts')
+  @stack('custom-script')
 </body>
 </html>
