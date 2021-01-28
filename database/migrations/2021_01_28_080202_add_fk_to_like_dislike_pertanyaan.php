@@ -29,7 +29,10 @@ class AddFkToLikeDislikePertanyaan extends Migration
     public function down()
     {
         Schema::table('like_dislike_pertanyaan', function (Blueprint $table) {
-            //
+          $table->dropForeign(['pertanyaan_id']);
+          $table->dropColumn(['pertanyaan_id']);
+          $table->dropForeign(['profil_id']);
+          $table->dropColumn(['profil_id']);
         });
     }
 }

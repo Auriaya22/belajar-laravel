@@ -29,7 +29,10 @@ class AddFkToKomentarPertanyaan extends Migration
     public function down()
     {
         Schema::table('komentar_pertanyaan', function (Blueprint $table) {
-            //
+          $table->dropForeign(['pertanyaan_id']);
+          $table->dropColumn(['pertanyaan_id']);
+          $table->dropForeign(['profil_id']);
+          $table->dropColumn(['profil_id']);
         });
     }
 }

@@ -29,7 +29,10 @@ class AddFkToKomentarJawaban extends Migration
     public function down()
     {
         Schema::table('komentar_jawaban', function (Blueprint $table) {
-            //
+          $table->dropForeign(['jawaban_id']);
+          $table->dropColumn(['jawaban_id']);
+          $table->dropForeign(['profil_id']);
+          $table->dropColumn(['profil_id']);
         });
     }
 }
