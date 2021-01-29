@@ -24,65 +24,60 @@
       <div class="row">
         <div class="col-12">
           <div class="card">
-            <!-- /.card-header -->
-            <div class="card-body">
-              <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th style="width: 10px">#</th>
-                    <th>Task</th>
-                    <th>Progress</th>
-                    <th style="width: 40px">Label</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>1.</td>
-                    <td>Update software</td>
-                    <td>
-                      <div class="progress progress-xs">
-                        <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                      </div>
-                    </td>
-                    <td><span class="badge bg-danger">55%</span></td>
-                  </tr>
-                  <tr>
-                    <td>2.</td>
-                    <td>Clean database</td>
-                    <td>
-                      <div class="progress progress-xs">
-                        <div class="progress-bar bg-warning" style="width: 70%"></div>
-                      </div>
-                    </td>
-                    <td><span class="badge bg-warning">70%</span></td>
-                  </tr>
-                  <tr>
-                    <td>3.</td>
-                    <td>Cron job running</td>
-                    <td>
-                      <div class="progress progress-xs progress-striped active">
-                        <div class="progress-bar bg-primary" style="width: 30%"></div>
-                      </div>
-                    </td>
-                    <td><span class="badge bg-primary">30%</span></td>
-                  </tr>
-                  <tr>
-                    <td>4.</td>
-                    <td>Fix and squish bugs</td>
-                    <td>
-                      <div class="progress progress-xs progress-striped active">
-                        <div class="progress-bar bg-success" style="width: 90%"></div>
-                      </div>
-                    </td>
-                    <td><span class="badge bg-success">90%</span></td>
-                  </tr>
-                </tbody>
-              </table>
+            <div class="card-header">
+              <h3 class="card-title">Daftar Pertanyaan</h3>
+              <div class="card-tools">
+                <a href="/pertanyaan/create" class="btn btn-tool"><i class="fas fa-plus"></i> Tambah Pertanyaan</a>
+              </div>
             </div>
-            <!-- /.card-body -->
+            <div class="card-body">
+              @if(session('success'))
+                <div class="alert alert-success alert-dismissible">
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                  {{ session('success') }}
+                </div>
+              @endif
+              <div class="row">
+                @forelse($pertanyaan as $p)
+                  <div class="col-md-3">
+                    <div class="card card-info" style="height: 300px;">
+                      <div class="card-header">
+                        <h3 class="card-title">{{ $p->judul }}</h3>
+                      </div>
+                      <div class="card-body">
+                        <p>{!! $p->isi !!}</p>
+                      </div>
+                      <div class="card-footer">
+                        <div class="row">
+                          <div class="col-md-12">
+                            <p>
+                              Oleh : {{ $p->profil_id }}
+                              <small>Tanggal {{ $p->tanggal_dibuat }}</small>
+                            </p>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-12 d-flex justify-content-around">
+                            <a href="/pertanyaan/{{ $p->id }}" class="btn btn-info">Lihat</a>
+                            <a href="/pertanyaan/{{ $p->id }}/edit" class="btn btn-secondary">Edit</a>
+                            <form action="/pertanyaan/{{ $p->id }}" method="post">
+                              @csrf
+                              @method('DELETE')
+                              <button type="submit" class="btn btn-danger">Hapus</button>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                @empty
+                  <div class="col-md-12">
+                    <h3 class="text-center"> Data masih kosong :( </h3>
+                  </div>
+                @endforelse
+              </div>
+            </div>
           </div>
-          <!-- /.card -->
-          <!-- /.card -->
         </div>
         <!-- /.col -->
       </div>
