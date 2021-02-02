@@ -35,11 +35,21 @@
                   <div class="form-group">
                     <label>Judul Pertanyaan</label>
                     <input type="text" class="form-control" name="judul" placeholder="judul pertanyaan">
+                    @error('judul')
+                      <div class="alert alert-danger">
+                        {{ $message }}
+                      </div>
+                  @enderror
                   </div>
                   <div class="form-group mb-3">
                     <label>Isi Pertanyaan</label>
                     <textarea class="textarea" placeholder="Place some text here" name="isi"
                       style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                    @error('isi')
+                      <div class="alert alert-danger">
+                          {{ $message }}
+                      </div>
+                    @enderror
                   </div>
               </div>
               <div class="card-footer">

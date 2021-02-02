@@ -30,12 +30,12 @@
             <p>Home</p>
           </a>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a href="/data-tables" class="nav-link">
           <i class="nav-icon fas fa-table"></i>
             <p>DataTables</p>
           </a>
-        </li>
+        </li> -->
       </ul>
     </nav>
     <!-- /.sidebar-menu -->
