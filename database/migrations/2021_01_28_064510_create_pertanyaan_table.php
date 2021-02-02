@@ -18,6 +18,11 @@ class CreatePertanyaanTable extends Migration
           $table->string('judul');
           $table->longText('isi');
           $table->timestamps();
+          // foreign key
+          $table->unsignedBigInteger('user_id');
+          $table->foreign('user_id')->references('id')->on('users');
+          // $table->unsignedBigInteger('jawaban_tepat_id')->nullable();
+          // $table->foreign('jawaban_tepat_id')->references('id')->on('jawaban');
         });
     }
 
@@ -29,5 +34,9 @@ class CreatePertanyaanTable extends Migration
     public function down()
     {
         Schema::dropIfExists('pertanyaan');
+        $table->dropForeign(['jawaban_tepat_id']);
+        $table->dropColumn(['jawaban_tepat_id']);
+        $table->dropForeign(['profil_id']);
+        $table->dropColumn(['profil_id']);
     }
 }

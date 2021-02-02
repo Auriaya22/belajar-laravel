@@ -31,16 +31,27 @@
             <form role="form" action="/pertanyaan" method="post">
               <div class="card-body">
                   @csrf
-                  <!-- text input -->
+                  <!-- input judul -->
                   <div class="form-group">
                     <label>Judul Pertanyaan</label>
-                    <input type="text" class="form-control" name="judul" placeholder="judul pertanyaan">
+                    <input type="text" class="form-control" name="judul">
                     @error('judul')
                       <div class="alert alert-danger">
                         {{ $message }}
                       </div>
-                  @enderror
+                      @enderror
                   </div>
+                  <!-- input tag -->
+                  <div class="form-group">
+                    <label>Tag</label>
+                    <input type="text" class="form-control" name="tags">
+                    @error('tags')
+                      <div class="alert alert-danger">
+                        {{ $message }}
+                      </div>
+                      @enderror
+                  </div>
+                  <!-- input pertanyaan -->
                   <div class="form-group mb-3">
                     <label>Isi Pertanyaan</label>
                     <textarea class="textarea" placeholder="Place some text here" name="isi"

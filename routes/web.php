@@ -11,5 +11,9 @@
 |
 */
 // route ke index
-Route::get('/', 'PertanyaanController@index');
+Auth::routes();
+Route::get('/', 'PertanyaanController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
+// controller resource routes
 Route::resource('pertanyaan', 'PertanyaanController');
+Route::resource('tag', 'TagController');

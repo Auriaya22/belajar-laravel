@@ -4,16 +4,25 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Pertanyaan;
+use App\Tag;
+use Auth;
 
-class PertanyaanController extends Controller
-{
+class PertanyaanController extends Controller{
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct(){
+        $this->middleware('auth')->only(['create', 'store', 'edit', 'update', 'delete']);
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index(){
       $pertanyaan = Pertanyaan::all();
       return view('pertanyaan.index', compact('pertanyaan'));
     }
@@ -23,8 +32,7 @@ class PertanyaanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
+    public function create(){
         return view('pertanyaan.create');
     }
 
@@ -38,15 +46,25 @@ class PertanyaanController extends Controller
     {
         $this->validate($request,[
           'judul' => 'required',
-          'isi' => 'required'
+          'isi'   => 'required',
+          'tags'  => 'required'
         ]);
-
-        Pertanyaan::create([
-          'judul' => $request->judul,
-          'isi' => $request->isi
+        // splitting tags input
+        $arr_tags = explode(',', $request['tags']);
+        // dd($arr_tags);
+        // insert into tag table
+        $tag_ids = [];
+        foreach ($arr_tags as $tag) {
+          $tag        = Tag::firstOrCreate(['nama_tag' => $tag]);
+          $tag_ids[]  = $tag->id;
+        }
+        $pertanyaan = Pertanyaan::create([
+          'judul'   => $request->judul,
+          'isi'     => $request->isi,
+          'user_id' => Auth::id()
         ]);
-
-        return redirect('/pertanyaan');
+        $pertanyaan->tags()->sync($tag_ids);
+        return redirect('/pertanyaan')->with('success', 'Pertanyaan berhasil disimpan');
     }
 
     /**
@@ -91,7 +109,7 @@ class PertanyaanController extends Controller
       $pertanyaan->judul = $request->judul;
       $pertanyaan->isi = $request->isi;
       $pertanyaan->update();
-      return redirect('/pertanyaan');
+      return redirect('/pertanyaan')->with('success', 'Pertanyaan berhasil di ubah');
     }
 
     /**

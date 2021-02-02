@@ -26,7 +26,7 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Edit pertanyaan {{ $pertanyaan->id }}</h3>
+              <h3 class="card-title">Edit pertanyaan</h3>
             </div>
             <form role="form" action="/pertanyaan/{{ $pertanyaan->id }}" method="post">
               <div class="card-body">

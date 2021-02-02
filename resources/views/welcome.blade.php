@@ -5,7 +5,7 @@
     <title>Welcome</title>
   </head>
   <body>
-    <h1>Selamat Datang, {{ $nama }} !</h1>
+    <h1>Selamat Datang!</h1>
     <br>
     <h2>Terima kasih telah bergabung di SanberBook. Social media kita bersama!</h2>
   </body>
